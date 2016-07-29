@@ -1,11 +1,11 @@
 {
-  "name": "js-countries",
+  "name": "country-name",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mehcode/js-countries.git"
+    "url": "git+https://github.com/mehcode/country-name.git"
   },
   "keywords": [
     "countries",
@@ -16,15 +16,15 @@
   "author": "Ryan Leckey <leckey.ryan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mehcode/js-countries/issues"
+    "url": "https://github.com/mehcode/country-name/issues"
   },
-  "homepage": "https://github.com/mehcode/js-countries#readme",
-  "devDependencies": {
+  "homepage": "https://github.com/mehcode/country-name#readme",
+  "scripts": {
+    "install": "node generate.js"
+  },
+  "dependencies": {
     "cldr-data": "^29.0.1",
     "cldrjs": "^0.4.5",
     "glob": "^7.0.5"
-  },
-  "scripts": {
-    "install": "node generate.js",
-  },
+  }
 }

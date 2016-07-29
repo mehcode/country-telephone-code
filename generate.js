@@ -14,7 +14,14 @@ Cldr.load(data("supplemental/codeMappings"));
 
 // Mapping Data
 // ============
-var resultCountry = (new Cldr("")).supplemental("codeMappings");
+var codeMappings = (new Cldr("")).supplemental("codeMappings");
+var resultCountry = {};
+
+Object.keys(codeMappings).forEach((key) => {
+  if (codeMappings[key]._alpha3) {
+    resultCountry[codeMappings[key]._alpha3] = key;
+  }
+});
 
 // Language Data
 // =============
@@ -27,8 +34,8 @@ locales.forEach((locale) => {
   // Bind to locale
   var cldr = new Cldr(locale);
 
-  // Grab language code
-  var lang = cldr.attributes.minLanguageId;
+  // Grab language code (minimal)
+  var lang = cldr.attributes.minLanguageId.split("-")[0];
   if (resultNames[lang] == null) {
     resultNames[lang] = cldr.main("localeDisplayNames/territories");
   }
