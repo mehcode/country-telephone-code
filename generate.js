@@ -5,7 +5,7 @@ var path = require("path");
 var fs = require("fs");
 
 // Find all supported languages
-var filenames = glob.sync("node_modules/cldr-data/main/*");
+var filenames = glob.sync(path.join(path.dirname(require.resolve("cldr-data")), "main/*"));
 var locales = filenames.map((filename) => path.basename(filename))
 
 // Load suppl. data (required)

@@ -1,4 +1,4 @@
-var DATA = require("./data.json");
+var DATA = require(__dirname + "/data.json");
 
 function get(countryCode, language) {
   var key = DATA.country[countryCode];
