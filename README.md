@@ -1,4 +1,4 @@
-# Country Name
+# Country Telephone Code
 > Simple getter for telephone codes for all countries (backed by a script that dumps data direct from the CLDR).
 
 ## Install
