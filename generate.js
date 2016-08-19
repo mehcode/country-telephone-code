@@ -9,40 +9,18 @@ var filenames = glob.sync(path.join(path.dirname(require.resolve("cldr-data")), 
 var locales = filenames.map((filename) => path.basename(filename))
 
 // Load suppl. data (required)
-Cldr.load(data("supplemental/likelySubtags"));
-Cldr.load(data("supplemental/codeMappings"));
+Cldr.load(data("supplemental/telephoneCodeData"));
 
-// Mapping Data
-// ============
-var codeMappings = (new Cldr("")).supplemental("codeMappings");
-var resultCountry = {};
+var telephoneData = (new Cldr("")).supplemental("telephoneCodeData");
+var result = {};
 
-Object.keys(codeMappings).forEach((key) => {
-  if (codeMappings[key]._alpha3) {
-    resultCountry[codeMappings[key]._alpha3] = key;
+for (var key in telephoneData) {
+  if (key.length === 2) {
+    result[key] = telephoneData[key].map((data) => data.telephoneCountryCode);
   }
-});
-
-// Language Data
-// =============
-
-var resultNames = {};
-locales.forEach((locale) => {
-  // Locale specific data
-  Cldr.load(data("main/" + locale + "/territories"));
-
-  // Bind to locale
-  var cldr = new Cldr(locale);
-
-  // Grab language code (minimal)
-  var lang = cldr.attributes.minLanguageId.split("-")[0];
-  if (resultNames[lang] == null) {
-    resultNames[lang] = cldr.main("localeDisplayNames/territories");
-  }
-});
+}
 
 // Write to known file location
 fs.writeFileSync("data.json", JSON.stringify({
-  countryNames: resultNames,
-  country: resultCountry,
+  countryTelephoneCodes: result,
 }));

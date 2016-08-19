@@ -1,8 +1,9 @@
 var DATA = require("./data.json");
 
-function get(countryCode, language) {
-  var key = DATA.country[countryCode];
-  return DATA.countryNames[language][key];
+function get(countryCode) {
+  return DATA.countryTelephoneCodes[countryCode];
 }
+
+get.countries = Object.keys(DATA.countryTelephoneCodes);
 
 module.exports = get;

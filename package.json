@@ -1,24 +1,25 @@
 {
-  "name": "country-name",
+  "name": "country-telephone-code",
   "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mehcode/country-name.git"
+    "url": "git+https://github.com/mehcode/country-telephone-code.git"
   },
   "keywords": [
     "countries",
     "country",
+    "telephone",
     "i18n",
     "iso"
   ],
   "author": "Ryan Leckey <leckey.ryan@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mehcode/country-name/issues"
+    "url": "https://github.com/mehcode/country-telephone-code/issues"
   },
-  "homepage": "https://github.com/mehcode/country-name#readme",
+  "homepage": "https://github.com/mehcode/country-telephone-code#readme",
   "scripts": {
     "install": "node generate.js"
   },
